@@ -14,33 +14,9 @@
     import { Chat, User, Myself, Message, MyMessage } from './chat.js';
 
     document.addEventListener("DOMContentLoaded", async () => {
-      /* const user = new User({ username: "Garito" });
-      user.render(".users");
-      const myself = new Myself({ username: "Fractal" });
-      myself.render(".users")
-      const message = new Message({
-        id: "0dc38eed", username: "Garito", timestamp: Date.now(), message: "This is the test message"
-      });
-      message.render(".messages");
-      const mymessage = new MyMessage({
-        id: "b1e6eff8", username: "Fractal", timestamp: Date.now(), message: "This is my test message"
-      });
-      mymessage.render(".messages"); */
-
-      /* const chatData = {
-        users: [ { username: "Garito" }, { username: "Fractal" } ],
-        msgs: [
-          {
-            id: "0dc38eed", username: "Garito", timestamp: Date.now(), msg: "This is the test message"
-          },
-          {
-            id: "b1e6eff8", username: "Fractal", timestamp: Date.now(), msg: "This is my test message"
-          }
-        ]
-      } */
       const chatData = {};
-      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJGcmFjdGFsIiwiZXhwIjoxNzI2MDkzOTgzfQ.SlWIoLnLzGQsRCr3QtTR3e9Q5BLqMCv9DohcT2fLcEs";
-      const chat = new Chat(chatData, "ws://localhost:3000", "Fractal", token, "gazeta", "admin");
+      const token = "<Your token>";
+      const chat = new Chat(chatData, "ws://localhost:3000", "Garito", token, "tenant", "admin");
       chat.render("body");
     });
   </script>
@@ -76,8 +52,5 @@
       </form>
     </div>
   </template>
-
-  <div class="users"></div>
-  <div class="messages"></div>
 </body>
 </html>
