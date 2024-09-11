@@ -63,7 +63,7 @@ export class Myself extends User {
 ```
 This code will change the background of the user
 
-If and object property changes, the widget will automatically redraw it if it has html placeholder (as username)
+If an object property changes, the widget will automatically redraw it if it has html placeholder (as username)
 
 ### Widgets with array properties
 More advanced widgets will need to manage array properties. For that, templates for the arrays items must be defined
@@ -73,17 +73,17 @@ Continuing with the previous examples, ```User``` and ```Myself```represent the 
 So the chat itself template could look like this:
 ```html
 <template id="Chat">
-    <div data-class="Chat" class="w-3/12 h-[calc(100vh-5rem)] flex flex-col gap-2">
-      <div class="flex flex-1 w-full">
-        <div data-prop="msgs" data-type="Array" class="flex flex-col-reverse flex-0 px-2 w-full h-full overflow-y-auto"></div>
-        <div data-prop="users" data-type="Array" class="flex flex-col gap-2 flex-1 px-2 w-full h-full"></div>
-      </div>
-      <form class="join">
-        <input name="msg" class="input input-bordered join-item w-full" placeholder="Type your message" disabled />
-        <button type="submit" class="btn join-item" disabled>Send</button>
-      </form>
+  <div data-class="Chat" class="w-3/12 h-[calc(100vh-5rem)] flex flex-col gap-2">
+    <div class="flex flex-1 w-full">
+      <div data-prop="msgs" data-type="Array" class="flex flex-col-reverse flex-0 px-2 w-full h-full overflow-y-auto"></div>
+      <div data-prop="users" data-type="Array" class="flex flex-col gap-2 flex-1 px-2 w-full h-full"></div>
     </div>
-  </template>
+    <form class="join">
+      <input name="msg" class="input input-bordered join-item w-full" placeholder="Type your message" disabled />
+      <button type="submit" class="btn join-item" disabled>Send</button>
+    </form>
+  </div>
+</template>
 ```
 Notice that there are two array properties: ```msgs``` and ```users``` so ```Message``` template should be defined too (check the index.html file for the complete example)
 
@@ -93,7 +93,7 @@ If you go to ```chat.js``` you will find a demostration were:
 1. The name of the array and the object to be added to the array will be provided as arguments
 2. In the example, two arrays are defined so the class selector should cover both arrays
 3. In the ```users``` case, there are two options: the user is the current user where ```Myself``` class would be returned and the rest of the users where ```User``` class must be used
-4. In the ```msgs```case, there are three options: ```Message``` form messages from users, ```MyMessage``` for messages from the current user and ```SysMessage``` for messages from the system
+4. In the ```msgs```case, there are three options: ```Message``` for messages from users, ```MyMessage``` for messages from the current user and ```SysMessage``` for messages from the system
 
 Since ```MyMessage``` and ```SysMessage``` are extensions of ```Message``` specific templates could be defined but not needed. The widget will select the first template found by iterating the object's class inheritance. In those cases will be ```MyMessage``` -> ```Message``` -> ```Widget``` and ```Myself``` -> ```User``` -> ```Widget```
 
